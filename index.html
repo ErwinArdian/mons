@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pacman</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<!-- <header>
+			<h1><a>PAC-MAN</a></h1>
+		</header> -->
+		<div class="game">
+			<div id="div_canvas">
+				<canvas id="canvas" width="840" height="930"></canvas>
+				<p>Score: <span id="score">0</span></p>
+				<p>High Score: <span id="HighScore">0</span></p>
+				<div id="tombol">
+					<button onclick="myFunction()">Manual</button>
+					<button onclick="myFunction()">Automatic</button>
+				</div>
+			</div>
+			<div id="panel_kanan"  width="840" height="930">
+				<canvas width="840" height="930"></canvas>
+			</div>
+		</div>
+		
+		<div id="device" style="text-align: center; border:1px dotted black; color:green;"></div>
+		<script type="text/javascript" src="js/Map.js"></script>
+		<script type="text/javascript" src="js/Pacman.js"></script>
+		<script type="text/javascript" src="js/Ghost.js"></script>
+		<script type="text/javascript" src="js/Astar.js"></script>
+		<script type="text/javascript" src="js/ActivityMain.js"></script>		
+	</body>
+</html>
