@@ -66,7 +66,7 @@ class Ghost {
 	
 	canEaten(){
 		console.log("ghost can be eaten");
-		color = "blue";
+		// color = "blue";
 	}
 };
 
