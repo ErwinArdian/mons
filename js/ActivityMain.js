@@ -17,11 +17,11 @@ var Direction = {
 	DEFAULT: 0
 };
 
+var aStar = new AStar();
 var pacman = new Pacman();
 var ghosts = new Ghost();
-var astar = new AStar();
 
-var ghostRed = new GhostFollower(420, 345, "#F00", 5, 0, 0, 0);
+var ghostRed = new GhostFollower(420, 345, "#F00", 5);
 var ghostOrange = new GhostRandom(420, 345, "#F90", 5);
 var ghostGreen = new GhostFollower(420, 345, "#0F0", 2.5);
 var ghostPink = new GhostRandom(420, 345, "#F99", 5);
@@ -131,6 +131,11 @@ function getPosition(el) {
   };
 }
 
+function heuristic(pacman, ghostRed) {
+        //return Math.abs(pacman.x - ghostRed.x ) + Math.abs(pacman.y  - ghostRed.y);
+        console.log(Math.abs(pacman.x - ghostRed.x ) + Math.abs(pacman.y  - ghostRed.y));
+	}
+
 function ChasePacman(horizontal, vertical) {
 	var directions = ["", ""];
 	var travel_x = horizontal - pacman.x;
@@ -208,6 +213,9 @@ function ChasePacman(horizontal, vertical) {
 		died = true;
 		//console.log(died);
 	} 
+	
+	//console.log(pacman.f);
+	//console.log(ghosts.g);
 	
 	//var myElement = document.querySelector("#canvas"); 
 	//var position = getPosition(myElement);
@@ -341,13 +349,14 @@ function action() {
 					map.arrayMap[cellsY][cellsX] = 1;
 					score += 10;
 					document.getElementById("score").innerHTML = score;
-					console.log("posisi y" + cellsY);
-					console.log("posisi x" + cellsX);
+					//console.log(cellsY);
+					//console.log(cellsX);
 				} else if (map.arrayMap[cellsY][cellsX] == 3) { //jika makan pills super
 					map.arrayMap[cellsY][cellsX] = 1;
 					score += 50;
 					document.getElementById("score").innerHTML = score;
 					//console.log(cellsY);
+					ghosts.canEaten();
 				}
 			}
 			

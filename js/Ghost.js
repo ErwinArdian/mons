@@ -14,8 +14,6 @@ class Ghost {
 		this.f = f;
         this.g = g;
         this.h = h;
-        this.neighbours = [];
-        this.parent = null;
 	}
 
 	draw() {
@@ -64,6 +62,11 @@ class Ghost {
 				this.vy = 0;
 				break;
 		}
+	}
+	
+	canEaten(){
+		console.log("ghost can be eaten");
+		color = "blue";
 	}
 };
 

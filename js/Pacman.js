@@ -1,7 +1,7 @@
 /* global ctx, Direction */
 
 class Pacman {
-	constructor (x, y, speed){
+	constructor (x, y, speed, f, g, h){
 		this.x = 420;
 		this.y = 705;
 		this.vx = 0;
@@ -9,12 +9,10 @@ class Pacman {
 		this.radio = 20;
 		this.direction = Direction.DEFAULT;
 		//this.speed = speed;
-
-		 this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.neighbours = [];
-        this.parent = null;
+		
+		this.f = f;
+        this.g = g;
+        this.h = h;
 	}
 	
 	draw() {

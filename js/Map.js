@@ -48,14 +48,12 @@ class Map{
 		this.yLength = this.arrayMap.length;
         this.vx = 0;
         this.vy = 0;
-	    
-        this.f = 0;
+		
+		this.f = 0;
         this.g = 0;
         this.h = 0;
-        this.neighbours = [];
-        this.parent = null;
     }
-
+    
     draw() {
         /*Background / canvas*/
         ctx.fillStyle = "rgb(0,0,0)";
@@ -398,13 +396,9 @@ class Map{
 					//console.log(x);
 					//console.log(canvas.width);
 				}
+				//console.log(cell[2]);
 			}
 		}
-		//console.log(this.arrayMap[i]);
+		
 	}
-
-    addNeighbour(){
-        var i = this.y;
-        var j = this.x;
-    }
 }

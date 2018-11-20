@@ -1,11 +1,7 @@
 class AStar{
-	constructor(x, y, color, speed) {
-        this.x = x,
-        this.y = y;
-        thi.
-    }
+	
 	heuristic(a, b) {
-        return Math.abs(a.x / size - b.x / size) + Math.abs(a.y / size - b.y / size);
+        return Math.abs(a.x - b.x ) + Math.abs(a.y  - b.y);
 	}
 	
 	astar(start, goal) {
@@ -16,7 +12,7 @@ class AStar{
         var closedSet = [];
         var path = [];
 
-        start = canvas[ghosts[0].y / size][ghosts[0].x / size];
+        start = ghosts.x;
         goal = pacman;
         for (let i = 0; i < canvas.length; i++) {
             for (let j = 0; j < canvas[i].length; j++) {
