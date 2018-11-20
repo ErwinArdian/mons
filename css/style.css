@@ -52,7 +52,7 @@ h1 a {
     font-family: "Pacman";
 }
 h1 a:hover {
-    -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+    -webkit-animation: neon 1.5s ease-in-out infinite alternate;
     animation: neon3 1.5s ease-in-out infinite alternate;
 }
 h1 a:hover {
@@ -87,4 +87,43 @@ h1 a:hover {
 #panel_kanan{
 	display:inline-block;
 	background-color:white;
+}
+
+#menu_list{
+    list-style:none;
+    font-family: "Pacman";
+    src: url("../font/pac-font.ttf");
+
+}
+
+#menu_list a{
+    color:white;
+}
+
+#menu_list_li{
+    margin-bottom:5px;
+    /* display:inline-block; */
+}
+
+#menu_list_li:hover a{
+    background-color:white;
+    color:black;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color:white;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+    color:black;
 }

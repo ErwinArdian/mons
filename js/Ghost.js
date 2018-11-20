@@ -64,9 +64,11 @@ class Ghost {
 		}
 	}
 	
-	canEaten(){
+	canEaten(color){
 		console.log("ghost can be eaten");
-		color = "blue";
+		setTimeout(function(){
+			console.log("ghost can't be eaten");
+		}, 3000); //can't eat after 3 seconds
 	}
 };
 
@@ -84,7 +86,7 @@ class GhostFollower extends Ghost {
 		}
 		this.x += this.vx * this.speed;
 		this.y += this.vy * this.speed;
-		//console.log("posisi x" + this.x);
+		//console.log("posisi x" + this.x + " & posisi y = " + this.y);
 	}
 };
 
