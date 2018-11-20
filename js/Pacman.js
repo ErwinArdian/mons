@@ -1,14 +1,14 @@
 /* global ctx, Direction */
 
 class Pacman {
-	constructor (x, y, speed, f, g, h){
+	constructor (x, y, f, g, h){
 		this.x = 420;
 		this.y = 705;
 		this.vx = 0;
 		this.vy = 0;
 		this.radio = 20;
 		this.direction = Direction.DEFAULT;
-		//this.speed = speed;
+		this.speed = 3;
 		
 		this.f = f;
         this.g = g;
@@ -93,7 +93,7 @@ class Pacman {
 		if(dirChanged){
 			this.changeDirection();
 		}
-		this.x += this.vx * 5;
+		this.x += this.vx * 5; //speed
 		this.y += this.vy * 5;
 	}
 }
