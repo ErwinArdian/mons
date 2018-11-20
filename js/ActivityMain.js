@@ -2,9 +2,6 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
-/*UNUSED*/
-//var touch = new Touch(320, 250, 15, 15);
-
 var score = 0;
 var map = new Map();
 var died = false;
@@ -23,10 +20,9 @@ var ghosts = new Ghost();
 
 var ghostRed = new GhostFollower(420, 345, "#F00", 5);
 var ghostOrange = new GhostRandom(420, 345, "#F90", 5);
-var ghostGreen = new GhostFollower(420, 345, "#0F0", 2.5);
+var ghostGreen = new GhostFollower(420, 345, "#0F0", 3);
 var ghostPink = new GhostRandom(420, 345, "#F99", 5);
 
-var size = 50;
 var storagedHighScore = localStorage.getItem("HighScore");
 
 var SkorTinggi = Math.max("HighScore", score);
@@ -131,9 +127,15 @@ function getPosition(el) {
   };
 }
 
-function heuristic(pacman, ghostRed) {
-        //return Math.abs(pacman.x - ghostRed.x ) + Math.abs(pacman.y  - ghostRed.y);
-        console.log(Math.abs(pacman.x - ghostRed.x ) + Math.abs(pacman.y  - ghostRed.y));
+function heuristic() {
+		var heu;
+            heu = Math.abs(pacman.x - ghostRed.x) + Math.abs(pacman.y - ghostRed.y);
+        //return d;
+		console.log(heu);
+	}
+
+	function neighbors(){
+		var tetangga = [];
 	}
 
 function ChasePacman(horizontal, vertical) {
@@ -197,20 +199,20 @@ function ChasePacman(horizontal, vertical) {
 	//alert("kena deh");
 	//console.log(ghostRed.x + " , " + pacman.y);
 	 if (ghostRed.x == pacman.x && ghostRed.y == pacman.y) {
-		location.reload();
 		died = true;
+		location.reload();
 		//console.log(died);
 	} else if (ghostOrange.x == pacman.x && ghostOrange.y == pacman.y){
-		location.reload();
 		died = true;
+		location.reload();
 		//console.log(died);
 	} else if (ghostGreen.x == pacman.x && ghostGreen.y == pacman.y){
-		location.reload();
 		died = true;
+		location.reload();
 		//console.log(died);
 	} else if (ghostPink.x == pacman.x && ghostPink.y == pacman.y){
-		location.reload();
 		died = true;
+		location.reload();
 		//console.log(died);
 	} 
 	
@@ -363,6 +365,8 @@ function action() {
 		} else {
 			pacman.direction = Direction.DEFAULT;
 		}
+		heuristic();
+		neighbors();
 		checkDie();
 		pacman.move();
 		GhostsMove();
