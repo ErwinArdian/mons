@@ -130,6 +130,7 @@ function getPosition(el) {
 function heuristic() {
 		var heu;
             heu = Math.abs(pacman.x - ghostRed.x) + Math.abs(pacman.y - ghostRed.y);
+        //return d;
 		console.log(heu);
 	}
 
@@ -198,22 +199,22 @@ function ChasePacman(horizontal, vertical) {
 
 	//console.log(ghostRed.x + " , " + pacman.y);
 	 if (ghostRed.x == pacman.x && ghostRed.y == pacman.y) {
-		died = true;
-		location.reload();
+		//died = true;
+		//location.reload();
 	} else if (ghostOrange.x == pacman.x && ghostOrange.y == pacman.y){
-		died = true;
-		location.reload();
+		//died = true;
+		//location.reload();
 	} else if (ghostGreen.x == pacman.x && ghostGreen.y == pacman.y){
-		died = true;
-		location.reload();
+		//died = true;
+		//location.reload();
 	} else if (ghostPink.x == pacman.x && ghostPink.y == pacman.y){
-		died = true;
-		location.reload();
+		//died = true;
+		//location.reload();
 	} 
 	
 	//console.log(pacman.f);
 	//console.log(ghosts.g);
-	
+
 	return directions;
 }
 
@@ -300,6 +301,7 @@ function canEaten(){
 	}, 3000); //can't eat after 3 seconds
 }
 
+
 function action() {
 	draw();
 	var KEY_LEFT = 37;
@@ -370,12 +372,10 @@ function action() {
 		} else {
 			pacman.direction = Direction.DEFAULT;
 		}
-		heuristic();
-		neighbors();
-		checkDie();
-		pacman.move();
+		//heuristic();
+		//neighbors();
 		GhostsMove();
-		
+		checkDie();
 	}
 	window.requestAnimationFrame(action);
 }

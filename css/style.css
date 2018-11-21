@@ -91,9 +91,9 @@ h1 a:hover {
 
 #menu_list{
     list-style:none;
-    font-family: "Pacman";
-    src: url("../font/pac-font.ttf");
-
+    /* font-family: "Pacman";
+    src: url("../font/pac-font.ttf"); */
+    font-family:arial;
 }
 
 #menu_list a{

@@ -1,5 +1,5 @@
 /* global ctx, Direction */
-
+var map = new Map;
 class Pacman {
 	constructor (x, y, f, g, h){
 		this.x = 420;
@@ -15,7 +15,8 @@ class Pacman {
         this.h = h;
 	}
 	
-	draw() {
+	draw(type) {
+
 		ctx.fillStyle = "rgb(255,255,0)";
 		ctx.beginPath();
 		switch (this.direction) {
@@ -36,7 +37,17 @@ class Pacman {
 				break;
 		}
 		ctx.lineTo(this.x, this.y);
-		ctx.fill();
+		ctx.fill(); 
+
+		type=5;
+		//console.log(type);
+		/*for (var i = 1; i < this.yLength-1; i++) {
+			for (var j = 1; j < this.xLength-1; j++) {
+				var cell = this.arrayMap[i][j];
+				cell = 5;
+			}
+		}
+		//console.log(cell); */
 	}
 	
 	changeDirection(){
