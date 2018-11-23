@@ -5,6 +5,7 @@ var ctx = canvas.getContext('2d');
 var score = 0;
 var map = new Map();
 var died = false;
+var canEat = false;
 
 var Direction = {
 	UP: 1,
@@ -25,7 +26,7 @@ var ghostPink = new GhostRandom(420, 345, "#F99", 5);
 
 var storagedHighScore = localStorage.getItem("HighScore");
 
-var SkorTinggi = Math.max("HighScore", score);
+//var SkorTinggi = Math.max("HighScore", score);
 
 function draw() {
 	map.draw();
@@ -287,18 +288,47 @@ function interaction(e) {
 }
 
 function canEaten(){
+	canEat = true;
+	console.log(canEat);
 	console.log("ghost can be eaten");
+	ghostRed.color = "blue";
+	ghostOrange.color = "blue";
+	ghostGreen.color = "blue";
+	ghostPink.color = "blue";
+	console.log("posisi ghost red = " + ghostRed.x);
+	console.log("posisi pacman = " + pacman.x);
+	
+	//cek jika pacman bertabrakan dengan ghost, maka pacman dapat memakan ghost
+	if (ghostRed.x == pacman.x && ghostRed.y == pacman.y) {
+		//console.log("you ate the ghost");
+		ghostRed.x = 420;
+		ghostRed.y = 345;
+	}else if (ghostOrange.x == pacman.x && ghostOrange.y == pacman.y) {
+		//console.log("you ate the ghost");
+		ghostOrange.x = 420;
+		ghostOrange.y = 345;
+	}else if (ghostGreen.x == pacman.x && ghostGreen.y == pacman.y) {
+		//console.log("you ate the ghost");
+		ghostGreen.x = 420;
+		ghostGreen.y = 345;
+	}else if (ghostPink.x == pacman.x && ghostPink.y == pacman.y) {
+		//console.log("you ate the ghost");
+		ghostPink.x = 420;
+		ghostPink.y = 345;
+	}
+	
+	//fungsi timeout, setelah sekian detik, semua kembali ke semula
 	setTimeout(function(){
 		console.log("ghost can't be eaten again");
-		ghostRed.color = "blue";
-
-		if (ghostRed.x == pacman.x && ghostRed.y == pacman.y) {
-			console.log("you ate the ghost");
-			//died = false;
-		}else{
-			console.log("suck");
-		}
-	}, 3000); //can't eat after 3 seconds
+		ghostRed.color = "#F00";
+		ghostOrange.color = "#F90";
+		ghostGreen.color = "#0F0";
+		ghostPink.color = "#F99";
+		canEat = false;
+	}, 10000); //can't eat after 10 seconds
+	
+	clearTimeout();
+	
 }
 
 
@@ -365,7 +395,8 @@ function action() {
 					score += 50;
 					document.getElementById("score").innerHTML = score;
 					//console.log(cellsY);
-					canEaten();
+					//canEaten();
+					canEat = true;
 				}
 			}
 			
@@ -374,6 +405,12 @@ function action() {
 		}
 		//heuristic();
 		//neighbors();
+		//canEat = false;
+		if(canEat == true){
+			canEaten();
+		}else{
+			canEat == false;
+		}
 		GhostsMove();
 		checkDie();
 	}
