@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+       .oooooo..o  o8o   .o8           oooo   o8o
+      d8P'    `Y8  `"'  "888           `888   `"'
+      Y88bo.      oooo   888oooo.       888  oooo
+       `"Y8888o.  `888   d88' `88b      888  `888
+           `"Y88b  888   888   888      888   888
+      oo     .d8P  888   888   888 .o.  888   888
+      8""88888P'  o888o  `Y8bod8P' Y8P o888o o888o
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+    <link rel="canonical" href="https://sib.li/pacman/">
+    <base href="https://sib.li/pacman/">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="generator" content="Siberex" />
+    <meta name="keywords" content="Siberex, Stephan Legachev, Stepan Legachev, Степан Легачёв, Степан Легачев, Stephan Legachyov, Стёпка Легачёв" />
+
+    <title>Алгоритм поиска A*</title>
+
+	<script type="text/javascript">
+	  WebFontConfig = {
+		google: { families: [ 'PT Sans:400,700,400italic', 'PT Sans Caption:400,700:cyrillic,latin' ] }
+	  };
+	  (function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	  })();
+	</script>
+
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+
+    <link rel="stylesheet" href="css/base.css" type="text/css" />
+    <!--
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic|PT+Sans+Caption:400,700&amp;subset=cyrillic,latin" rel="stylesheet" type="text/css" />
+    -->
+    <link rel="stylesheet" href="css/page.css" type="text/css" />
+
+    <link rel="stylesheet" href="css/ui-darkness/jquery-ui-1.8.11.custom.css" />
+    <link rel="stylesheet" href="css/pacman.css" />
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/arrayhelpers.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/binaryheap.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/graph.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/astar.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/jquery-1.6.2.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/jquery-ui-1.8.11.custom.min.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/ui/asearch.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/ui/draw.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/ui/walls.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="js/pacman/ui/ui.js"></script>
+</head>
+<body  >
+
+	<p class="description">A* search algorithm example.</p>
+	<p class="description">Blinky will try to find the shortest path to Pacman.</p>
+
+	<canvas id="maze" class="ui-corner-all"></canvas>
+
+	<span id="toolbar" class="ui-corner-all">
+		<span id="drawpick">
+			<input type="radio" id="btn-wall" name="drawmode" value="wall" checked="checked" /><label for="btn-wall">Draw wall</label>
+			<input type="radio" id="btn-blinky" name="drawmode" value="blinky" /><label for="btn-blinky">Blinky</label>
+			<input type="radio" id="btn-pacman" name="drawmode" value="pacman" /><label for="btn-pacman">Pacman</label>
+		</span>
+
+	    <span style="margin-left: 100px; color: #CCC;"><span id="steps-count">0</span> steps</span>
+		<!--button id="btn-find">Find the way!</button-->
+	</span>
+
+	<p class="copyright">← <a href="http://www.sib.li">Stepan Legachev</a></p>
+
+
+
+    <!-- Yandex.Metrika counter --><div style="display:none;"><script type="text/javascript">(function(w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter9562021 = new Ya.Metrika({id:9562021, clickmap:true}); } catch(e) { } }); })(window, "yandex_metrika_callbacks");</script></div><script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script><noscript><div><img src="//mc.yandex.ru/watch/9562021" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-57408359-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>
