@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="math.min.js" type="text/javascript"></script> 
+
+		<style>
+		#pacman {
+			width: 50px;
+			height: 50px;
+			background-color: black;
+			background-position: center;
+			background-size: contain;
+			background-image: url(img/pacman.gif);
+			display: inline-block;
+		}
+
+		</style>
+	</head>
+
+	<body>
+		<p> <!-- to center the canvas-->
+			<br>
+		</p>
+
+		<script>
+		function startPosition(){
+			pixelColor = "#00ff00";//green
+			pixelClass = 1;
+		}
+		function endPosition(){
+			pixelColor = "#ff0000";//red
+			pixelClass = 2;
+		}
+		function wallPosition(){
+			pixelColor = "#0000ff";//blue
+			pixelClass = 3;
+		}
+		function refreshCanvas(){
+			 pixelClass = 1; //for determining which color
+			 pixelColor = "#00ff00"; //by default blue for start position
+			 startPos = [];
+			 endPos = [];
+			 wallPos = [];
+			 drawGrid();
+		}
+		</script>
+
+		<div style="text-align: center;"> 
+		<canvas id="canvas" style="border: 2px solid #000000;" width="500px" height="500px"></canvas>
+		</div>
+
+		  <script type="text/javascript" language="javascript">
+
+			var canvas = document.getElementById("canvas");
+			var context= canvas.getContext("2d");
+			
+
+
+		</script> 
+
+		<script src="aStar_legacy.js"></script>
+		<p style="text-align: center;">
+			<input type="button" value="Start Position" onclick="startPosition()"/>
+			<input type="button" value="End Position" onclick="endPosition()"/>
+			<input type="button" value="Wall Position" onclick="wallPosition()" />
+			<input type="button" value="Refresh" onclick="refreshCanvas()"/> 
+			<input type="button" value="Search Path" onclick="searchPath()"/> 
+
+		</p>
+	</body>
+</html>	

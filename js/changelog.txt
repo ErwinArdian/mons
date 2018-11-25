@@ -1,0 +1,4 @@
+fungsi can eaten harus ada di draw supaya posisi x dan y bisa dicek terus menerus
+tetapi jika fungsiini ditempatkan di draw, maka akan terjadi error, yaitu ghost akan berubah warna sebelum pacman memakan superpill
+ada masalah di timeout, harap diperhatikan
+cek telegram untuk beberapa link tutorial

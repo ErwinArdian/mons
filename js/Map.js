@@ -43,6 +43,7 @@ class Map{
             2 = pill biasa
             3 = power pill
             4 = rumah ghost
+            5 = pacman
         */
 		this.xLength = this.arrayMap[0].length;
 		this.yLength = this.arrayMap.length;
@@ -399,6 +400,5 @@ class Map{
 				//console.log(cell[2]);
 			}
 		}
-		
 	}
 }

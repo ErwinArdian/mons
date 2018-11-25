@@ -1,4 +1,5 @@
 /* global Direction, ctx, canvas */
+//var pacman = new Pacman();
 
 class Ghost {
 	constructor(x, y, color, speed, f, g, h) {
@@ -64,11 +65,18 @@ class Ghost {
 		}
 	}
 	
-	canEaten(color){
+	/* canEaten(){
+		console.log("ghost can be eaten");
 		setTimeout(function(){
-			console.log("ghost can't be eaten");
+			console.log("ghost can't be eaten again");
+			this.color = "red";
+
+			if (this.x == pacman.x && this.y == pacman.y) {
+				console.log("you ate the ghost");
+				//died = false;
+			}
 		}, 3000); //can't eat after 3 seconds
-	}
+	} */
 };
 
 class GhostFollower extends Ghost {
