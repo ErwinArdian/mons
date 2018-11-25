@@ -50,9 +50,16 @@ class Map{
         this.vx = 0;
         this.vy = 0;
 		
+        //astar variable algorithm requirement start
 		this.f = 0;
         this.g = 0;
         this.h = 0;
+
+        this.visited = false;
+        this.closed = false;
+        this.debug = "";
+        this.parent = null
+        //astar algorithm requirement end
     }
     
     draw() {
