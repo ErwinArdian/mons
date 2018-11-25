@@ -4,6 +4,7 @@ var ctx = canvas.getContext('2d');
 
 var score = 0;
 var map = new Map();
+var grid = new Grid(31,28);
 var died = false;
 
 var Direction = {
